@@ -3,6 +3,12 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
+model_paths = {
+    "Logistic Regression": os.path.join(base_path, "model_lr.pkl"),
+    "Naive Bayes": os.path.join(base_path, "model_nb.pkl"),
+    "Support Vector Machine": os.path.join(base_path, "svc_model.pkl")
+}
+
 #-----------sidebar
 page = st.sidebar.selectbox('page navigator', ["predictor", "model analyis"])
 
