@@ -9,6 +9,9 @@ model_paths = {
     "Support Vector Machine": os.path.join(base_path, "svc_model.pkl")
 }
 
+# Model selection
+    model_choice = st.selectbox("Choose Model", list(model_paths.keys()))
+
 #-----------sidebar
 page = st.sidebar.selectbox('page navigator', ["predictor", "model analyis"])
 
