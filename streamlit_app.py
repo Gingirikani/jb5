@@ -3,11 +3,17 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-model_paths = {
-    "Logistic Regression": os.path.join(base_path, "model_lr.pkl"),
-    "Naive Bayes": os.path.join(base_path, "model_nb.pkl"),
-    "Support Vector Machine": os.path.join(base_path, "svc_model.pkl")
+models = {
+    "Logistic Regression": lr,
+    "Naive Bayes": nb,
+    "Support Vector Machine": svm
 }
+
+count_vectorizer = pickle.load(open('count_vectorizer.pkl', 'rb'))
+
+# Streamlit App
+st.title("News Classifier")
+st.write("Classify news articles using different models")
 
 #-----------sidebar
 page = st.sidebar.selectbox('page navigator', ["predictor", "model analyis"])
