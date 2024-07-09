@@ -23,7 +23,7 @@ X_train_tfidf = vectorizer.fit_transform(X_train)
 X_test_tfidf = vectorizer.transform(X_test)
 
 # Save vectorizer
-with open('vectorizer.pkl', 'wb') as f:
+with open('count_vectorizer.pkl', 'wb') as f:
     pickle.dump(vectorizer, f)
 
 # Logistic Regression
