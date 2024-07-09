@@ -17,15 +17,6 @@ y_train = train_df['label'].values
 X_test = test_df['text'].values
 y_test = test_df['label'].values
 
-# Text Vectorization
-vectorizer = TfidfVectorizer(stop_words='english', max_df=0.7)
-X_train_tfidf = vectorizer.fit_transform(X_train)
-X_test_tfidf = vectorizer.transform(X_test)
-
-# Save vectorizer
-with open('count_vectorizer.pkl', 'wb') as f:
-    pickle.dump(vectorizer, f)
-
 # Logistic Regression
 log_reg = LogisticRegression(max_iter=1000)
 log_reg.fit(X_train_tfidf, y_train)
@@ -56,7 +47,7 @@ models = {
     "Naive Bayes": pickle.load(open('model_nb.pkl', 'rb')),
     "Support Vector Machine": pickle.load(open('model_svm.pkl', 'rb'))
 }
-vectorizer = pickle.load(open('vectorizer.pkl', 'rb'))
+
 
 # Input text
 input_text = st.text_area("Enter News Article")
